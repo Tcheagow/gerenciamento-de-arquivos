@@ -1,9 +1,9 @@
 #ifndef FS_INCLUDED
 #define FS_INCLUDED
 
-// #define FS_SIZE 2048 era essa
+#define FS_SIZE 2048
 #define FS_SIZE 1024  // Tamanho do disco em blocos
-#define BLOCK_SIZE 4096  // Tamanho de cada bloco em bytes
+// #define BLOCK_SIZE 4096  // Tamanho de cada bloco em bytes
 #define MAGIC_NUMBER 0x12345678  // Número mágico para identificar um disco formatado
 
 typedef struct {

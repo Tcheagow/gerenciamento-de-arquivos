@@ -12,12 +12,15 @@
 
 void fs_init( void) {
     block_init();
+    char block[BLOCK_SIZE];
 
-    superblock_t superblock;
-    
-    block_read(0, (char*)&superblock);
+    block_read(0, block);
 
-    if (superblock.magic == MAGIC_NUMBER) {
+    int magic_number;
+    memcpy(&magic_number, block, sizeof(int));
+    printf("Número mágico: %d\n", magic_number);
+
+    if (magic_number == MAGIC_NUMBER) {
         printf("Disco formatado encontrado. Montando o sistema de arquivos...\n");
     } else {
         printf("Disco não formatado encontrado.\n");
