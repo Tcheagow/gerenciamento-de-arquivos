@@ -9,7 +9,7 @@
 typedef struct {
     int magic;  // Número mágico para identificar o disco formatado
     int size;  // Tamanho do disco em blocos
-    int root;  // Número do bloco do diretório raiz
+    inode_t* root;  // Ponteiro para o i-node do diretório raíz
 } superblock_t;
 
 void fs_init( void);
@@ -28,4 +28,5 @@ int fs_stat( char *fileName, fileStat *buf);
 
 #define MAX_FILE_NAME 32
 #define MAX_PATH_NAME 256  // This is the maximum supported "full" path len, eg: /foo/bar/test.txt, rather than the maximum individual filename len.
+
 #endif

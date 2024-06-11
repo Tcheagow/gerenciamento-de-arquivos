@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <fs.h>
 
-#define FS_SIZE 1024  // Tamanho do disco em blocos
+/*#define FS_SIZE 1024  // Tamanho do disco em blocos
 #define BLOCK_SIZE 2048  // Tamanho de cada bloco em bytes
 #define MAGIC_NUMBER 0x12345678  // Número mágico para identificar um disco formatado
 
@@ -55,7 +56,6 @@ void block_read(int block, char *mem) {
     }
 }
 
-
 int fs_mkfs( void) {
     superblock_t superblock;
     char block[BLOCK_SIZE];
@@ -98,6 +98,7 @@ void fs_init( void) {
     }
 }
 //Carlos, usei esse arquivo pra testar o programa, aqui é mais fácil de executar
+*/
 
 int main()
 {

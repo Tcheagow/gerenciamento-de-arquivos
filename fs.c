@@ -2,6 +2,7 @@
 #include "common.h"
 #include "block.h"
 #include "fs.h"
+#include "inode.h"
 
 #ifdef FAKE
 #include <stdio.h>
@@ -10,6 +11,11 @@
 #define ERROR_MSG(m)
 #endif
 
+/*
+    @description TODO: Descrever a funcionalidade
+    @params 
+    @return 
+*/
 void fs_init( void) {
     block_init();
     char block[BLOCK_SIZE];
@@ -28,13 +34,23 @@ void fs_init( void) {
     }
 }
 
+/*
+    @description TODO: Descrever a funcionalidade
+    @params
+    @return
+*/
 int fs_mkfs( void) {
     superblock_t superblock;
     char block[BLOCK_SIZE];
 
     superblock.magic = MAGIC_NUMBER;
     superblock.size = FS_SIZE;
-    superblock.root = 1;
+
+    inode_t* root = (inode_t*)malloc(sizeof(inode_t));
+
+    initialize_directory(root, 1);
+
+    superblock.root = root;
 
     bzero_block(block); 
     memcpy(block, &superblock, sizeof(superblock));
@@ -46,6 +62,11 @@ int fs_mkfs( void) {
     return 0;
 }
 
+/*
+    @description
+    @params
+    @return
+*/
 int fs_open( char *fileName, int flags) {
     return -1;
 }
